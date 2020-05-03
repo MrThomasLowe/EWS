@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Add Feed</h1>
+    <!-- <script src="//rss.bloople.net/?url=https%3A%2F%2Fnews.yahoo.com%2Frss%2Fmostviewed&limit=10&showtitle=false&type=js"></script> -->
+    <div class="content-section">
+        <form method="POST" action="">
+                {{ addForm.hidden_tag() }}
+                <fieldset class="-formroup">
+                    <legend class="border-bottom mb-4">Subscribe to new feed</legend>
+                    <div class="form-group">
+                        {{ addForm.title.label(class="form-control-label") }}
+                        {% if addForm.title.errors %}
+                            {{ addForm.title(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback"> 
+                                {% for error in addForm.title.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ addForm.title(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ addForm.link.label(class="form-control-label") }}
+                        {% if addForm.link.errors %}
+                            {{ addForm.link(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback"> 
+                                {% for error in addForm.link.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ addForm.link(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    {{ addForm.submit1(class="btn btn-outline-info") }}
+                </div>
+        </form>
+    </div>
+    <h1>Clear Feeds</h1>
+    <div class="content-section">
+        <form method="POST" action="">
+                {{ deleteForm.hidden_tag() }}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Delete all feeds</legend>
+                </fieldset>
+                <div class="form-group">
+                    {{ deleteForm.submit2(class="btn btn-outline-info") }}
+                </div>
+        </form>
+    </div>
+{% endblock content %}
+

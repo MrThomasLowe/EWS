@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>About Page</h1>
+    <article class="media content-section">
+        <div class="media-body">
+            <h2>This is a description of what this site is designed to do.</h2>
+            <p>This site was created using a flask server as well as various packages that flask offers.</p>
+            <p>This site is designed to allow a user to create an account, login to their account, and access/manage their own personalised RSS feed.</p>
+            <p>This website uses <a href="https://rss.bloople.net/">https://rss.bloople.net/</a> to convert the RSS feed links into html code to be shown on the website. On the homepage it advertises this ability with a lack of other restrictions.</p>
+            <p>WTForms was used to increase security on the login page as it provides a Secure Form with CSRF token, as well as Global CSRF protection.</p>
+        </div>
+      </article>
+    
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Home Page</h1>
+    {% if current_user.is_authenticated %}
+    {% for post in posts %}
+    <article class="media content-section">
+        <div class="media-body">
+          <h2><a class="article-title" href="{{ url_for('addfeed', post_id=post.id) }}">{{ post.title }}</a></h2>
+          <p>
+            <script src="//rss.bloople.net/?url={{ post.link }}&limit=10&showtitle=false&type=js"></script>
+          </p>
+        </div>
+      </article>
+    {% endfor %}
+    {% else %}
+    <div class="media-body">
+    <p>Please sign in to see your feed on the homepage!</p>
+    </div>
+    {% endif %}
+{% endblock content %}
